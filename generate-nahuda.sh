@@ -8,7 +8,7 @@ if [ -f "$output_file" ]; then
   > "$output_file"
 fi
 
-echo "export const data = [" > "$output_file"
+echo "export const guests = [" > "$output_file"
 
 awk -F, 'NR>1 && $6 != "参加キャンセル" { print "  {\"role\": \"" $1 "\", \"userId\": \"" $2 "\", \"userName\": \"" $3 "\"}," }' "$input_file" | sed '$ s/,$//' >> "$output_file"
 

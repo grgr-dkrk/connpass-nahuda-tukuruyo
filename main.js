@@ -1,12 +1,16 @@
-import { data } from "./output.js";
+import { guests } from "./output.js";
+import { staff } from "./output_staff.js";
 import { eventMeta } from "./output.js";
 
 if (!DOMPurify) {
   throw new Error("DOMPurify is not loaded");
 }
 
-const html = data
-  .sort((a) => (a.role === "LT枠" ? -1 : 1))
+const html = [...staff, ...guests]
+  .sort((a, b) => {
+    const roleOrder = ["スタッフ", "LT枠", "参加枠"];
+    return roleOrder.indexOf(a.role) - roleOrder.indexOf(b.role);
+  })
   .map(
     (item) => `
   <div class="item ${
