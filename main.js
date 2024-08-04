@@ -1,4 +1,5 @@
 import { data } from "./output.js";
+import { eventMeta } from "./output.js";
 
 if (!DOMPurify) {
   throw new Error("DOMPurify is not loaded");
@@ -17,18 +18,26 @@ const html = data
   }">
     <div class="item-bg"></div>
     <div class="obi obi--top"></div>
-    <div class="meta">
-    <img class="meta__icon" src="avatars/${item.userName}.png" />
-    <div>
-      <p class="meta__class">${
-        item.role === "スタッフ"
-          ? "Staff"
-          : item.role === "LT枠"
-          ? "Speaker"
-          : ""
-      }</p>
-      <p class="meta__name">${item.userName}</p>
-    </div>
+    <div class="contents">
+     <div class="userInfo">
+        <img class="userInfo__icon" src="avatars/${item.userName}.png" />
+          <div>
+            <p class="userInfo__class">${
+              item.role === "スタッフ"
+              ? "Staff"
+              : item.role === "LT枠"
+              ? "Speaker"
+              : ""
+            }</p>
+           <p class="userInfo__name">${item.userName}</p>
+       </div>
+      </div>
+      ${eventMeta.title && eventMeta.subTitle ? `
+        <div class="eventMeta">
+          <p class="eventMeta__title">${eventMeta.title}</p>
+          <p class="eventMeta__subTitle">${eventMeta.subTitle}</p>
+        </div>
+      ` : ""}
     </div>
     <div class="obi obi--under">
       <small>

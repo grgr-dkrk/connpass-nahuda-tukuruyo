@@ -1,6 +1,6 @@
 # Generate-Nahuda
 
 ```sh
-./generate-nahuda.sh ./event.csv ./output.js
+./generate-nahuda.sh event-title event-subtitle
 python -m SimpleHTTPServer 8000
 ```

@@ -43,27 +43,46 @@ body {
   z-index: -1;
 }
 
-.meta {
+.contents {
   height: 128mm;
-  display: flex;
-  align-items: center;
   padding: 0 15mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.meta__icon {
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo__icon {
   width: 15mm;
   height: 15mm;
   border-radius: 50%;
   padding-right: 2mm;
 }
 
-.meta__class {
+.userInfo__class {
   font-size: 18px;
 }
 
-.meta__name {
+.userInfo__name {
   font-size: 24px;
   font-weight: bold;
+}
+
+.eventMeta {
+  margin-top: 24mm;
+}
+
+.eventMeta__title {
+  font-size: 18px;
+}
+
+.eventMeta__subTitle {
+  font-size: 14px;
+  margin-top: 2mm;
 }
 
 .obi--under {

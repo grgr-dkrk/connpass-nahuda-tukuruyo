@@ -1,6 +1,8 @@
 #!/bin/bash
-input_file="$1"
+input_file="./event.csv"
 output_file="./output.js"
+event_title=$1
+event_subTitle=$2
 
 if [ -f "$output_file" ]; then
   > "$output_file"
@@ -11,3 +13,5 @@ echo "export const data = [" > "$output_file"
 awk -F, 'NR>1 { print "  {\"role\": \"" $1 "\", \"userId\": \"" $2 "\", \"userName\": \"" $3 "\"}," }' "$input_file" | sed '$ s/,$//' >> "$output_file"
 
 echo "]" >> "$output_file"
+
+echo "export const eventMeta = { title: \"$event_title\", subTitle: \"$event_subTitle\" }" >> "$output_file"
