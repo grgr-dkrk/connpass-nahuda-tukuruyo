@@ -10,7 +10,7 @@ fi
 
 echo "export const data = [" > "$output_file"
 
-awk -F, 'NR>1 { print "  {\"role\": \"" $1 "\", \"userId\": \"" $2 "\", \"userName\": \"" $3 "\"}," }' "$input_file" | sed '$ s/,$//' >> "$output_file"
+awk -F, 'NR>1 && $6 != "参加キャンセル" { print "  {\"role\": \"" $1 "\", \"userId\": \"" $2 "\", \"userName\": \"" $3 "\"}," }' "$input_file" | sed '$ s/,$//' >> "$output_file"
 
 echo "]" >> "$output_file"
 
