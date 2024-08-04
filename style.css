@@ -22,10 +22,15 @@ body {
 
 .item {
   position: relative;
-  margin-top: 0.25mm;
-  height: 148mm;
+  height: 142mm;
+  padding: 6mm 8mm;
+
   &:nth-child(even) {
-    page-break-after: always;
+    break-after: page;
+  }
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
 
@@ -41,14 +46,16 @@ body {
   width: 100%;
   position: absolute;
   z-index: -1;
+  left: 0;
 }
 
 .contents {
-  height: 128mm;
+  height: 116mm;
   padding: 0 15mm;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 }
 
 .userInfo {
@@ -56,11 +63,12 @@ body {
   align-items: center;
 }
 
-.userInfo__icon {
+.userInfo__icon-wrapper {
   width: 15mm;
   height: 15mm;
   border-radius: 50%;
-  padding-right: 2mm;
+  margin-right: 2mm;
+  overflow: hidden;
 }
 
 .userInfo__class {

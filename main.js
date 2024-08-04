@@ -23,8 +23,11 @@ const html = [...staff, ...guests]
     <a class="link__user" target="_blank" href="https://connpass.com/user/${item.userId}/" rel="noopener noreferrer">ユーザーページへ</a>
     <div class="obi obi--top"></div>
     <div class="contents">
+    <div class="item-bg"></div>
      <div class="userInfo">
-        <img class="userInfo__icon" src="avatars/${item.userName}.png" />
+        <figure class="userInfo__icon-wrapper">
+          <img class="userInfo__icon" src="avatars/${item.userId}.png" />
+        </figure>
           <div>
             <p class="userInfo__class">${
               item.role === "スタッフ"
