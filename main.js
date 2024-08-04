@@ -20,7 +20,7 @@ const html = [...staff, ...guests]
       ? "item--lt"
       : "item--guest"
   }">
-    <div class="item-bg"></div>
+    <a class="link__user" target="_blank" href="https://connpass.com/user/${item.userId}/" rel="noopener noreferrer">ユーザーページへ</a>
     <div class="obi obi--top"></div>
     <div class="contents">
      <div class="userInfo">
@@ -53,7 +53,7 @@ const html = [...staff, ...guests]
   )
   .join("");
 
-const cleanHtml = DOMPurify.sanitize(html);
+const cleanHtml = DOMPurify.sanitize(html, { ADD_ATTR: ['target'] });
 
 printButton.addEventListener("click", () => {
   print();

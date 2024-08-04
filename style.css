@@ -129,8 +129,25 @@ body {
   }
 }
 
+.link__user {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border: 1px solid #000;
+  padding: 8px 16px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
 @media print {
   #printButton {
+    display: none !important;
+  }
+  .link__user {
     display: none !important;
   }
 }
