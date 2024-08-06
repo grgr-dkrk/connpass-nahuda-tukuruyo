@@ -2,5 +2,6 @@
 
 ```sh
 ./generate-nahuda.sh event-title event-subtitle
-python -m SimpleHTTPServer 8000
+
+python3 -m http.server
 ```
